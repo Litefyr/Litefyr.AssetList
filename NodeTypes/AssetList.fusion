@@ -1,0 +1,32 @@
+prototype(Jonnitto.AssetList:Component.Collection) {
+    @process.addHeadline = afx`
+        <Litespeed.Presentation:Atom.Headline
+            content={q(node).property('headline')}
+            inBackend={node.context.inBackend}
+            isFirstElement={false}
+            class="text-fl-xl mb-4"
+        />
+        {value}
+    `
+}
+
+prototype(Jonnitto.AssetList:Component.Action) {
+    caption = null
+}
+
+prototype(Jonnitto.AssetList:Component.Asset.Title) {
+    renderer.@process.addCaption = afx`
+        {value}
+        <small @if={props.asset.caption} class="block">{props.asset.caption}</small>
+    `
+}
+
+prototype(Jonnitto.AssetList:AssetList) {
+    renderer.@process.addSpacing = afx`
+        <Litespeed.Presentation:Spacing
+            augmenter
+            padding
+            waveSpacing
+            tailwind="not-prose"
+        />`
+}

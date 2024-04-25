@@ -1,0 +1,21 @@
+{
+    "name": "litespeed/assetlist",
+    "description": "An asset list node type for Litespeed",
+    "type": "neos-litespeed",
+    "license": "GPL-3.0-or-later",
+    "require": {
+        "litespeed/theme": "self.version",
+        "jonnitto/assetlist" : "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Litespeed\\AssetList\\": "Classes"
+        }
+    },
+    "keywords": [
+        "flow",
+        "neos",
+        "litespeed",
+        "nodetype"
+    ]
+}

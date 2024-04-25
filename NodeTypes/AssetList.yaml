@@ -1,0 +1,27 @@
+'Jonnitto.AssetList:AssetList':
+  label: "${Neos.Node.labelForNode(node).properties('headline').postfix(' [' + Carbon.Array.length(q(node).property('assets')) + ']')}"
+  search:
+    fulltext:
+      enable: true
+  properties:
+    headline:
+      type: string
+      search:
+        fulltextExtractor: "${Indexing.extractInto('h2', value)}"
+      ui:
+        label: 'Litespeed.AssetList:NodeTypes.AssetList:properites.headline'
+        reloadIfChanged: true
+        showInCreationDialog: true
+        inspector:
+          group: resources
+          position: 1
+          editor: Neos.Neos/Inspector/Editors/TextAreaEditor
+    assets:
+      ui:
+        showInCreationDialog: true
+    forceDownload:
+      ui:
+        showInCreationDialog: true
+    thumbnail:
+      ui:
+        showInCreationDialog: true

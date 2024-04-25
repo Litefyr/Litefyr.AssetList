@@ -1,0 +1,10 @@
+Neos:
+  Neos:
+    fusion:
+      autoInclude:
+        Litespeed.AssetList: true
+    userInterface:
+      translation:
+        autoInclude:
+          Litespeed.AssetList:
+            - 'NodeTypes/*'
