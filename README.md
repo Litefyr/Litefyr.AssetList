@@ -1,4 +1,4 @@
-# Asset list content elmement for Litespeed
+# Asset list content element for Litespeed
 
 [Demo](https://elements.litespeed.io/assetlist)
 
@@ -11,4 +11,4 @@ This package is available via [packagist]. Run `composer require litespeed/asset
 
 [litespeed]: https://litespeed.io
 [distribution]: https://github.com/LitespeedProject/Distribution
-[packagist]: https://packagist.org/packages/litespeed/blockquote
+[packagist]: https://packagist.org/packages/litespeed/assetlist
