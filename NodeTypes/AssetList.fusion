@@ -1,6 +1,6 @@
 prototype(Jonnitto.AssetList:Component.Collection) {
     @process.addHeadline = afx`
-        <Litespeed.Presentation:Atom.Headline
+        <Litefyr.Presentation:Atom.Headline
             content={q(node).property('headline')}
             inBackend={node.context.inBackend}
             isFirstElement={false}
@@ -23,7 +23,7 @@ prototype(Jonnitto.AssetList:Component.Asset.Title) {
 
 prototype(Jonnitto.AssetList:AssetList) {
     renderer.@process.addSpacing = afx`
-        <Litespeed.Presentation:Spacing
+        <Litefyr.Presentation:Spacing
             augmenter
             padding
             waveSpacing

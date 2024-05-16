@@ -2,9 +2,9 @@ Neos:
   Neos:
     fusion:
       autoInclude:
-        Litespeed.AssetList: true
+        Litefyr.AssetList: true
     userInterface:
       translation:
         autoInclude:
-          Litespeed.AssetList:
+          Litefyr.AssetList:
             - 'NodeTypes/*'

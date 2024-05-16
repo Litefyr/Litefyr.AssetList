@@ -9,7 +9,7 @@
       search:
         fulltextExtractor: "${Indexing.extractInto('h2', value)}"
       ui:
-        label: 'Litespeed.AssetList:NodeTypes.AssetList:properites.headline'
+        label: 'Litefyr.AssetList:NodeTypes.AssetList:properites.headline'
         reloadIfChanged: true
         showInCreationDialog: true
         inspector:
