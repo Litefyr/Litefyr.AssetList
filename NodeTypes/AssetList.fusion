@@ -28,5 +28,6 @@ prototype(Jonnitto.AssetList:AssetList) {
             padding
             waveSpacing
             tailwind="not-prose"
+            class={Presentation.cssClass("asset-list")}
         />`
 }
