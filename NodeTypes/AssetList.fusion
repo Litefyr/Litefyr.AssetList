@@ -1,7 +1,8 @@
 prototype(Jonnitto.AssetList:Component.Collection) {
     @process.addHeadline = afx`
         <Litefyr.Presentation:Atom.Headline
-            content={q(node).property('headline')}
+            @if.set={!props.enableText}
+            content={props.headline}
             inBackend={node.context.inBackend}
             isFirstElement={false}
             class="text-fl-xl mb-4"
@@ -22,12 +23,54 @@ prototype(Jonnitto.AssetList:Component.Asset.Title) {
 }
 
 prototype(Jonnitto.AssetList:AssetList) {
-    renderer.@process.addSpacing = afx`
-        <Litefyr.Presentation:Spacing
-            augmenter
-            padding
-            waveSpacing
-            tailwind="not-prose"
-            class={Presentation.cssClass("asset-list")}
-        />`
+    breakout = ${q(node).property('breakout')}
+    enableText = ${q(node).property('enableText')}
+    leftColSize = ${q(node).property('leftColSize')}
+    textLeft = ${q(node).property('textLeft')}
+    links = Litefyr.Integration:Component.Links
+
+    headline = Neos.Neos:Editable {
+        property = 'headline'
+        block = false
+    }
+
+    label = Neos.Neos:Editable {
+        property = 'label'
+        block = false
+    }
+
+    text = Neos.Neos:Editable {
+        property = 'text'
+    }
+
+    animationElements = Litefyr.Animations:Helper.Elements {
+        selector = 'h1,h2,li'
+        stagger = ${q(node).property('thumbnail')}
+    }
+    animationText = Litefyr.Animations:Helper.Text
+
+    renderer.@process {
+        spacing = afx`
+            <Litefyr.Presentation:Spacing
+                @if.set={!props.enableText}
+                augmenter
+                padding
+                waveSpacing
+                tailwind="not-prose"
+                width={props.breakout}
+                animationElements={props.animationElements}
+                class={Presentation.cssClass("asset-list")}
+            />
+        `
+
+        textWithContent = afx`
+            <Litefyr.Presentation:Module.TextWithContent
+                @if={props.enableText}
+                breakpoint={props.thumbnail ? 'lg' : 'md'}
+                {...props}
+                content={value}
+                wrapperClass={Presentation.cssClass("asset-list")}
+            />
+        `
+    }
 }

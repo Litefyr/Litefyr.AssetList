@@ -1,21 +1,17 @@
 'Jonnitto.AssetList:AssetList':
+  superTypes:
+    'Litefyr.Animations:Mixin.Elements': true
+    'Litefyr.Animations:Mixin.TextWithContent': true
+    'Litefyr.Integration:Mixin.Breakout': true
+    'Litefyr.Integration:Mixin.TextWithContent': true
+    'Litefyr.Integration:Mixin.TextWithContent.Position': true
+    'Litefyr.Integration:Mixin.TextWithContent.LeftColSize': true
+    'Litefyr.Integration:Mixin.TextWithContent.Label': true
   label: "${Neos.Node.labelForNode(node).properties('headline').postfix(' [' + Carbon.Array.length(q(node).property('assets')) + ']')}"
   search:
     fulltext:
       enable: true
   properties:
-    headline:
-      type: string
-      search:
-        fulltextExtractor: "${Indexing.extractInto('h2', value)}"
-      ui:
-        label: 'Litefyr.AssetList:NodeTypes.AssetList:properites.headline'
-        reloadIfChanged: true
-        showInCreationDialog: true
-        inspector:
-          group: resources
-          position: 1
-          editor: Neos.Neos/Inspector/Editors/TextAreaEditor
     assets:
       ui:
         showInCreationDialog: true
