@@ -1,11 +1,14 @@
 prototype(Jonnitto.AssetList:Component.Collection) {
     @process.addHeadline = afx`
-        <Litefyr.Presentation:Atom.Headline
+        <Litefyr.Presentation:Atom.HeadlineAndLabel
             @if.set={!props.enableText}
             content={props.headline}
+            label={props.label}
             inBackend={node.context.inBackend}
+            class='headline-alignment'
             isFirstElement={false}
-            class="text-fl-xl mb-4"
+            fontSize={props.headlineFontSize}
+            marginBottom={true}
         />
         {value}
     `
@@ -25,8 +28,14 @@ prototype(Jonnitto.AssetList:Component.Asset.Title) {
 prototype(Jonnitto.AssetList:AssetList) {
     breakout = ${q(node).property('breakout')}
     enableText = ${q(node).property('enableText')}
+    float = ${q(node).property('float')}
+    textMobileBottom = ${q(node).property('textMobileBottom')}
+    enableHeadline = ${q(node).property('enableHeadline')}
+    headlineFontSize = ${q(node).property('headlineFontSize')}
     leftColSize = ${q(node).property('leftColSize')}
     textLeft = ${q(node).property('textLeft')}
+    theme = ${q(node).property('theme')}
+    align = ${q(node).property('align')}
     links = Litefyr.Integration:Component.Links
 
     headline = Neos.Neos:Editable {
@@ -55,7 +64,6 @@ prototype(Jonnitto.AssetList:AssetList) {
                 @if.set={!props.enableText}
                 augmenter
                 padding
-                waveSpacing
                 tailwind="not-prose"
                 width={props.breakout}
                 animationElements={props.animationElements}
