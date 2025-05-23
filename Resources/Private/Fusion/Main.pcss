@@ -1,0 +1,104 @@
+.assets-list__headline {
+  @apply block text-theme-accent;
+}
+
+.assets-list__caption {
+  @apply text-theme-front text-lightness-offset-5;
+}
+
+.assets-list__action {
+  @apply block text-fl-xs;
+}
+
+.assets-list__filesize {
+  &:empty {
+    @apply hidden;
+  }
+
+  &::before {
+    content: "(";
+  }
+
+  &::after {
+    content: ")";
+  }
+}
+
+/* Thumnail view */
+
+.assets-list--thumbnail {
+  --asset-list-max-col-count: 5;
+  --asset-list-min-col-size: 16rem;
+  --asset-list-gap-x: 1rem;
+  --asset-list-gap-y: 2rem;
+  --asset-list-ratio: 4 / 3;
+
+  /* calculations, do not touch */
+  --asset-list-col-size-calc: calc((100% - var(--asset-list-gap-x) * var(--asset-list-max-col-count)) / var(--asset-list-max-col-count));
+  --asset-list-col-min-size-calc: min(100%, max(var(--asset-list-min-col-size), var(--asset-list-col-size-calc)));
+}
+
+.assets-list__list--thumbnail {
+  display: grid;
+  gap: var(--asset-list-gap-y) var(--asset-list-gap-x);
+  grid-template-columns: repeat(auto-fit, minmax(var(--asset-list-col-min-size-calc), 1fr));
+  text-align: var(--asset-list-align);
+}
+
+.assets-list__link--thumbnail {
+  @apply flex h-full flex-col overflow-clip rounded-box pb-2 transition bg-theme-back bg-lightness-offset-5 dark:-bg-lightness-offset-5;
+
+  box-shadow: var(--shadow-assets-list-thumbnail);
+
+  &:is(:hover, :focus) {
+    box-shadow: var(--shadow-assets-list-thumbnail-hover);
+  }
+}
+
+.assets-list__link--thumbnail > :last-child {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.assets-list__figure {
+  @apply order-first mb-2;
+
+  display: block;
+  aspect-ratio: var(--asset-list-ratio);
+  overflow: hidden;
+}
+
+.assets-list__img {
+  display: block;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.assets-list__headline--thumbnail,
+.assets-list__action--thumbnail {
+  @apply mx-2;
+}
+
+/* Text view */
+.assets-list__list--text {
+  @apply flex flex-col gap-4;
+}
+
+.assets-list__link--text {
+  @apply inline-block;
+
+  &:is(:hover, :focus) {
+    & .assets-list__headline {
+      @apply text-theme-accent -text-lightness-offset-10 dark:text-lightness-offset-10;
+    }
+
+    & .assets-list__action {
+      @apply underline;
+    }
+  }
+}

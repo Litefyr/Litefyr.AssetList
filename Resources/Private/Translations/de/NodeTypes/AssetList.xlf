@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file original="" product-name="Litefyr.AssetList" source-language="en" target-language="de" datatype="plaintext">
+    <file original="" product-name="Jonnitto.AssetList" source-language="en" target-language="de" datatype="plaintext">
         <body>
-            <trans-unit id="properites.headline" xml:space="preserve">
-                <source>Headline</source>
-                <target>Überschrift</target>
+            <trans-unit id="ui.help.message" xml:space="preserve">
+                <source>* The description is generated from the metadata or from the file name
+* With size and file type information
+* With or without preview image
+* Download can be forced
+* Optional heading
+* Selectable width
+* Selectable background color
+* Optional text field</source>
+                <target>* Die Beschreibung wird aus den Metadaten oder aus dem Dateinamen generiert
+* Mit Größen und Dateitypangabe
+* Mit oder ohne Vorschaubild
+* Download kann erzwungen werden
+* Optionale Überschrift
+* Wählbare Breite
+* Wählbare Hintergrundfarbe
+* Optionales Textfeld</target>
             </trans-unit>
         </body>
     </file>

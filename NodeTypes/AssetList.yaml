@@ -5,10 +5,20 @@
     'Litefyr.Integration:Mixin.Breakout': true
     'Litefyr.Integration:Mixin.TextWithContent': true
   label: "${Neos.Node.labelForNode(node).properties('headline').postfix(' [' + Carbon.Array.length(q(node).property('assets')) + ']')}"
+  ui:
+    position: 300
+    help:
+      message: i18n
   search:
     fulltext:
       enable: true
   properties:
+    enableHeadline:
+      ui:
+        inspector:
+          group: look
+          position: 'before enableText'
+          hidden: false
     assets:
       ui:
         showInCreationDialog: true

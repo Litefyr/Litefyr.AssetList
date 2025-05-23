@@ -1,7 +1,7 @@
 prototype(Jonnitto.AssetList:Component.Collection) {
     @process.addHeadline = afx`
         <Litefyr.Presentation:Atom.HeadlineAndLabel
-            @if.set={!props.enableText}
+            @if={!props.enableText && props.enableHeadline}
             content={props.headline}
             label={props.label}
             inBackend={node.context.inBackend}
@@ -58,10 +58,15 @@ prototype(Jonnitto.AssetList:AssetList) {
     }
     animationText = Litefyr.Animations:Helper.Text
 
+    attributes = Carbon.FileLoader:Strategy.Attributes {
+        package = 'Litefyr.AssetList'
+        css = 'Main.css'
+    }
+
     renderer.@process {
         spacing = afx`
             <Litefyr.Presentation:Spacing
-                @if.set={!props.enableText}
+                @if={!props.enableText}
                 augmenter
                 padding
                 tailwind="not-prose"
